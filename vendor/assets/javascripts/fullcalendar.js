@@ -3881,7 +3881,19 @@ function AgendaEventRenderer() {
 
 			seg.top = top;
 			seg.left = left;
-			seg.outerWidth = width;
+
+			if(event.annotation) {
+				seg.left = left - 2;
+			} else {
+				seg.left = left
+			}
+
+      if(event.annotation) {
+        seg.outerWidth = getColWidth();
+      } else {
+        seg.outerWidth = width;
+      }
+
 			seg.outerHeight = bottom - top;
 			html += slotSegHtml(event, seg);
 		}
@@ -3973,6 +3985,9 @@ function AgendaEventRenderer() {
 		if (event.source) {
 			classes = classes.concat(event.source.className || []);
 		}
+    if (event.annotation) {
+      classes.push('annotation');
+    }
 		if (url) {
 			html += "a href='" + htmlEscape(event.url) + "'";
 		}else{
@@ -5318,6 +5333,9 @@ function DayEventRenderer() {
 		if (isEventDraggable(event)) {
 			classNames.push('fc-event-draggable');
 		}
+    if (event.annotation) {
+      classNames.push('annotation');
+    }
 		if (segment.isStart) {
 			classNames.push('fc-event-start');
 		}
