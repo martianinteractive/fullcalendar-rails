@@ -4009,11 +4009,13 @@ function AgendaEventRenderer() {
 			"</div>" +
 			"<div class='fc-event-title'>" +
 			htmlEscape(event.title || '') +
-			"</div>" +
-			"<div class='fc-event-state'>" +
-			htmlEscape(event.state || '') +
-			"</div>" +
-			"</div>" +
+			"</div>";
+			if(!event.annotation) {
+				html += "<div class='fc-event-state'>" +
+				htmlEscape(event.state || '') +
+				"</div>";				
+			}
+			html += "</div>" +
 			"<div class='fc-event-bg'></div>";
 		if (seg.isEnd && isEventResizable(event)) {
 			html +=
