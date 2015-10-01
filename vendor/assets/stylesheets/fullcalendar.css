@@ -292,6 +292,13 @@ a.fc-event,
 .fc-event-title {
 	padding: 0 1px;
 	}
+
+.fc-event-notes {
+	text-align: right;
+	margin-top: 2px;
+ 	margin-right: 12px;
+	float: right;
+}
 	
 .fc .ui-resizable-handle {
 	display: block;
